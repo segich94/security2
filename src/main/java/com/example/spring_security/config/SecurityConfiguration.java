@@ -23,6 +23,8 @@ public class SecurityConfiguration {
         http.csrf()
                 .disable()
                 .authorizeHttpRequests()
+                .requestMatchers("/api/v1/auth/adm**")
+                .hasRole("SUPER_ADMIN")
                 .requestMatchers("/api/v1/auth/**")
                 .permitAll()
                 .anyRequest()
